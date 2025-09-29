@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  @apply bg-gray-900 text-white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-garba-orange rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-opacity-80;
+}
+
+/* Animation for Garba elements */
+@keyframes garbaDance {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(2deg); }
+  75% { transform: translateY(5px) rotate(-2deg); }
+}
+
+.animate-garba {
+  animation: garbaDance 4s ease-in-out infinite;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-garba-orange text-white px-6 py-2 rounded-md font-medium hover:bg-opacity-90 transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply border border-garba-yellow text-garba-yellow px-6 py-2 rounded-md font-medium hover:bg-garba-yellow hover:bg-opacity-10 transition-all duration-300;
+}
+
+/* Form inputs */
+.input-field {
+  @apply w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-garba-yellow focus:border-transparent;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white bg-opacity-5 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white border-opacity-10;
+}
+
+/* Custom checkbox */
+.checkbox-custom {
+  @apply h-5 w-5 rounded border-gray-700 bg-gray-800 text-garba-yellow focus:ring-garba-yellow focus:ring-offset-gray-900;
+}
+
+/* Custom radio */
+.radio-custom {
+  @apply h-5 w-5 border-gray-700 bg-gray-800 text-garba-yellow focus:ring-garba-yellow focus:ring-offset-gray-900;
+}
+
+/* Custom toggle */
+.toggle-checkbox:checked {
+  @apply right-0 border-garba-yellow;
+  right: 0;
+  background-color: #F7C548;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  @apply bg-garba-yellow;
+}
+
+/* Animation for loading */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom tooltip */
+.tooltip {
+  @apply invisible absolute z-50 p-2 text-xs text-white bg-gray-800 rounded shadow-lg opacity-0 transition-opacity duration-200;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible opacity-100;
+}
+
+/* Custom file upload */
+.file-upload {
+  @apply border-2 border-dashed border-gray-700 rounded-lg p-6 text-center cursor-pointer hover:border-garba-yellow transition-colors duration-200;
+}
+
+.file-upload input[type="file"] {
+  @apply hidden;
+}
+
+/* Custom select */
+.select-custom {
+  @apply block w-full pl-3 pr-10 py-2 text-base bg-gray-800 border-gray-700 focus:outline-none focus:ring-2 focus:ring-garba-yellow focus:border-transparent sm:text-sm rounded-md text-white;
+}
+
+/* Custom scrollbar for dropdowns */
+.select-dropdown {
+  scrollbar-width: thin;
+  scrollbar-color: #F7C548 #1F2937;
+}
+
+/* Custom toast notifications */
+.Toastify__toast {
+  @apply bg-gray-800 text-white border-l-4 border-garba-yellow;
+}
+
+.Toastify__progress-bar {
+  @apply bg-garba-yellow;
+}
+
+/* Custom animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+}

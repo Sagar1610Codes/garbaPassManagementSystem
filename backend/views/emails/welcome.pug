@@ -1,0 +1,17 @@
+extends baseEmail
+
+block content
+  p Hi #{firstName},
+  p Welcome to GarbaPass! We're glad to have you on board.
+  p Your account has been successfully created. You can now log in and start using our services.
+  table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+            tbody
+              tr
+                td
+                  a(href=`${url}`, target='_blank') Go to Dashboard
+  p If you need any help, please don't hesitate to contact our support team.
+  p - The GarbaPass Team
