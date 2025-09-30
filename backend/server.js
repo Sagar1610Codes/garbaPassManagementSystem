@@ -29,7 +29,7 @@ require('dotenv').config();
 const connectDB = require('./config/db');
 
 // Import routes
-const routes = require('./routes');
+const routes = require('./routes/index');
 
 // Import error handler
 const errorHandler = require('./middleware/error');
@@ -63,7 +63,6 @@ const corsOptions = {
       'http://127.0.0.1:3000'
     ];
     
-    // Allow requests with no origin (like mobile apps, curl, postman)
     if (!origin) return callback(null, true);
     
     if (allowedOrigins.indexOf(origin) === -1) {
@@ -76,12 +75,16 @@ const corsOptions = {
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'Pragma'], 
   exposedHeaders: ['Content-Range', 'X-Content-Range']
 };
 
+
 // Enable CORS with options
-app.use(cors(corsOptions));
+app.use(cors({
+    origin : [process.env.FRONTEND_URL, 'http://localhost:3000'],
+    credentials : true
+}))
 
 // Handle preflight requests
 app.options('*', cors(corsOptions));

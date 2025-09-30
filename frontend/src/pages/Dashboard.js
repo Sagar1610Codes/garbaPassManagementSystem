@@ -39,7 +39,7 @@ export default function Dashboard() {
       try {
         console.log('Fetching users with token:', token.substring(0, 15) + '...');
         
-        const response = await axios.get('http://localhost:5000/api/v1/users', {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/users`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -97,7 +97,7 @@ export default function Dashboard() {
   const handleStatusUpdate = async (userId, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/v1/users/${userId}/status`,
+        `/users/${userId}/status`,
         { status: newStatus },
         {
           headers: {
@@ -126,7 +126,7 @@ export default function Dashboard() {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5000/api/v1/auth/invite',
+        '/auth/invite',
         { email, role },
         {
           headers: {

@@ -35,12 +35,12 @@ export const AuthProvider = ({ children }) => {
       const response = await authAPI.login(email, password);
       console.log('Login response:', response);
       
-      if (response.data && response.data.token) {
-        localStorage.setItem('token', response.data.token);
+      if (response && response.token) {
+        localStorage.setItem('token', response.token);
         // Fetch user data after successful login
         const userResponse = await authAPI.getMe();
-        console.log('User data:', userResponse.data);
-        setUser(userResponse.data);
+        console.log('User data:', userResponse);
+        setUser(userResponse);
         return { success: true };
       } else {
         console.error('No token in response:', response);
